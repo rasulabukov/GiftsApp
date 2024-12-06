@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/contacts"
+        android:title="Контакты"
+        android:icon="@drawable/baseline_person_24"/>
+
+    <item
+        android:id="@+id/gifts"
+        android:title="Подарки"
+        android:icon="@drawable/rounded_featured_seasonal_and_gifts_24"/>
+</menu>
