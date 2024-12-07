@@ -100,8 +100,10 @@ class ContactsFragment : Fragment(R.layout.fragment_contacts) {
     private fun addContactToDatabase(contact: ContactsEntity) {
         val db = AppDatabase.getDatabase(requireContext())
         Thread {
-            db.contactsDao().insert(contact)
+            // Сохраняем контакт и получаем сгенерированный ID
+            val newContactId = db.contactsDao().insert(contact)
             requireActivity().runOnUiThread {
+                contact.id = newContactId // Обновляем ID у объекта контакта
                 contacts.add(contact)
                 contactAdapter.notifyItemInserted(contacts.size - 1)
                 Toast.makeText(requireContext(), "Контакт добавлен", Toast.LENGTH_SHORT).show()

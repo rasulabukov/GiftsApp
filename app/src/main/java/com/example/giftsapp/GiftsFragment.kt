@@ -52,15 +52,16 @@ class GiftsFragment : Fragment() {
 
     private fun loadGifts() {
         CoroutineScope(Dispatchers.IO).launch {
+            val contactsList = contactsDao.getAllContacts()
             // Получаем подарки для конкретного контакта
             val giftsList = giftsDao.getAllGifts()
 
             // Получаем все контакты
-            val contactsList = contactsDao.getAllContacts()
+
 
             withContext(Dispatchers.Main) {
-                gifts = giftsList
                 contacts = contactsList
+                gifts = giftsList
 
                 // Создаем и устанавливаем адаптер
                 giftAdapter = AdapterCheckGifts(gifts, contacts) { giftId ->

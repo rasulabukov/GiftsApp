@@ -6,6 +6,6 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "gifts")
 data class GiftsEntity(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
-    val contactId: Int,
+    val contactId: Long,
     val imageId: Long
 )

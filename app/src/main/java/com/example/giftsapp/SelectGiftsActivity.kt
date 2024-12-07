@@ -24,7 +24,7 @@ class SelectGiftsActivity : AppCompatActivity() {
     private lateinit var giftImageDao: GiftImageDao
     private lateinit var giftDao: GiftsDao
     private lateinit var swipeRefreshLayout: SwipeRefreshLayout
-    private var contactId: Int = 0
+    private var contactId: Long = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +39,7 @@ class SelectGiftsActivity : AppCompatActivity() {
         recyclerView = findViewById(R.id.cont_select_gifts)
         recyclerView.layoutManager = GridLayoutManager(this, 2)
 
-        contactId = intent.getIntExtra("CONTACT_ID", 0)
+        contactId = intent.getLongExtra("CONTACT_ID", 0)
         Log.d("Activity", "Sending gift for contact with ID: $contactId")
 
         // Сохраняем изображения в базу данных
