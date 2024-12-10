@@ -16,8 +16,6 @@ class AdapterCheckGifts(
     private val giftClickListener: (Long) -> Unit
 ) : RecyclerView.Adapter<AdapterCheckGifts.GiftViewHolder>() {
 
-
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GiftViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_gifts, parent, false)
         return GiftViewHolder(view)
@@ -35,11 +33,14 @@ class AdapterCheckGifts(
         private val contactNameTextView: TextView = view.findViewById(R.id.contactName)
         private val giftImageView: ImageView = view.findViewById(R.id.gift_image_story)
         private val contactImageView: CircleImageView = view.findViewById(R.id.ava)
+        private val giftNameTextView: TextView = view.findViewById(R.id.giftName) // Для отображения имени подарка
 
         fun bind(gift: GiftsEntity, contact: ContactsEntity?) {
             contactNameTextView.text = contact?.name ?: "Контакт не найден"
             giftImageView.setImageResource(gift.imageId.toInt())
             contactImageView.setImageResource(R.drawable.default_ava)
+            giftNameTextView.text = gift.name  // Устанавливаем имя подарка
         }
     }
 }
+

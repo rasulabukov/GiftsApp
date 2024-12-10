@@ -7,5 +7,6 @@ import androidx.room.PrimaryKey
 data class GiftsEntity(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val contactId: Long,
-    val imageId: Long
+    val imageId: Long,
+    val name: String
 )

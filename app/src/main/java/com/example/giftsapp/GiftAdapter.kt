@@ -8,22 +8,26 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.giftsapp.db.GiftsEntity
+import com.example.giftsapp.db.GiftsImageEntity
+
 class GiftAdapter(
-    private val giftImages: List<Int>,
+    private val giftImages: List<GiftsImageEntity>,
     private val onGiftClick: (Long) -> Unit // Функция для обработки клика по подарку
 ) : RecyclerView.Adapter<GiftAdapter.GiftViewHolder>() {
 
     inner class GiftViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val giftImage: ImageView = itemView.findViewById(R.id.gift_image)
+        val giftName: TextView = itemView.findViewById(R.id.giftName)
 
-        fun bind(giftResId: Int) {
+        fun bind(gift: GiftsImageEntity) {
             Glide.with(giftImage.context)
-                .load(giftResId)
+                .load(gift.imageResource)
                 .into(giftImage)
+            giftName.text = gift.name // Устанавливаем название подарка
 
             // Обработчик клика по изображению
             itemView.setOnClickListener {
-                onGiftClick(giftResId.toLong()) // Передаем ID изображения в функцию
+                onGiftClick(gift.imageResource.toLong()) // Передаем ID изображения в функцию
             }
         }
     }

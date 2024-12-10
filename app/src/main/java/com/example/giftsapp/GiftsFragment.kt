@@ -53,11 +53,7 @@ class GiftsFragment : Fragment() {
     private fun loadGifts() {
         CoroutineScope(Dispatchers.IO).launch {
             val contactsList = contactsDao.getAllContacts()
-            // Получаем подарки для конкретного контакта
             val giftsList = giftsDao.getAllGifts()
-
-            // Получаем все контакты
-
 
             withContext(Dispatchers.Main) {
                 contacts = contactsList
@@ -65,11 +61,12 @@ class GiftsFragment : Fragment() {
 
                 // Создаем и устанавливаем адаптер
                 giftAdapter = AdapterCheckGifts(gifts, contacts) { giftId ->
-
+                    // Обработчик клика по подарку
                 }
                 recyclerView.adapter = giftAdapter
                 giftAdapter.notifyDataSetChanged()
             }
         }
     }
+
 }
