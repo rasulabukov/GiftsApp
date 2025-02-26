@@ -2,15 +2,14 @@ package com.example.giftsapp.db
 
 import androidx.room.Dao
 import androidx.room.Insert
-import androidx.room.OnConflictStrategy
 import androidx.room.Query
 
 @Dao
 interface GiftsDao {
     @Insert
-    fun insertGift(gift: GiftsEntity)
+    suspend fun insertGift(gift: GiftsEntity)
 
-    @Query("SELECT * FROM gifts") // Получаем все подарки
+    @Query("SELECT * FROM gifts")
     suspend fun getAllGifts(): List<GiftsEntity>
 
     @Query("SELECT * FROM gifts WHERE contactId = :contactId")

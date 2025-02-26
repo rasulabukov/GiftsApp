@@ -17,20 +17,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="10dp">
-            <ImageView
-                android:id="@+id/gift_image"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:src="@drawable/gift8"
-                android:scaleX="1.4"/>
-        </androidx.cardview.widget.CardView>
-
         <TextView
-            android:id="@+id/giftName"
+            android:id="@+id/categoryName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="15sp"
@@ -38,17 +26,14 @@
             android:text="Название"
             android:layout_margin="10dp"/>
 
+        <ImageView
+            android:id="@+id/category_image"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/gift8"
+            android:scaleType="centerCrop"
+            android:paddingEnd="25dp"/>
 
-        <TextView
-            android:id="@+id/giftDesc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="13sp"
-            android:textStyle="bold"
-            android:text="Название"
-            android:textColor="#ABABAB"
-            android:layout_marginStart="10dp"
-            android:layout_marginBottom="10dp"/>
 
     </LinearLayout>
 

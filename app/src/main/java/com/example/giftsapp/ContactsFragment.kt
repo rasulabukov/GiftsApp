@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.giftsapp.db.AppDatabase
 import com.example.giftsapp.db.ContactsEntity
-import com.google.android.material.button.MaterialButton
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class ContactsFragment : Fragment(R.layout.fragment_contacts) {
@@ -125,7 +124,7 @@ class ContactsFragment : Fragment(R.layout.fragment_contacts) {
 
     private fun sendGift(contact: ContactsEntity) {
 
-        val intent = Intent(context, SelectGiftsActivity::class.java)
+        val intent = Intent(context, CategoryGiftsActivity::class.java)
         intent.putExtra("CONTACT_ID", contact.id) // Передача ID контакта
         Log.d("ContactsFragment", "Sending gift for contact with ID: ${contact.id}")
         context?.startActivity(intent)

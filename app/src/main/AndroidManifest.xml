@@ -13,6 +13,9 @@
         android:theme="@style/Theme.GiftsApp"
         tools:targetApi="31">
         <activity
+            android:name=".GiftsActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -22,8 +25,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SelectGiftsActivity"
-            android:exported="false"/>
+            android:name=".CategoryGiftsActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
